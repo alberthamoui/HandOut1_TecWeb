@@ -13,13 +13,13 @@ def read_file(path):
 
 def load_data(arquive):
     path = "data/{nome}".format(nome=arquive)
-    with open(path, 'r') as file:
+    with open(path, 'r',encoding='utf-8') as file:
         dic = json.load(file)
     return dic
 
 def load_template(arquive):
     path = "templates/{nome}".format(nome=arquive)
-    with open(path, 'r') as file:
+    with open(path, 'r',encoding='utf-8') as file:
         content = file.read()
     return content
 
@@ -27,7 +27,7 @@ def build_response(body='', code=200, reason='OK', headers=''):
     response = f'HTTP/1.1 {code} {reason}\n'
     if headers:
         response += f'{headers}\n'
-    response += '\n'
+    response += '\n\n'
     if body:
         response += f'{body}'
     return response.encode()
