@@ -31,4 +31,10 @@ class Database:
             title = linha[1]
             content = linha[2]
             lista.append(Note(id=id, title=title, content=content))
-        return lista 
+        return lista
+
+    def update(self, note):
+        sql = "UPDATE note SET title = ?, content = ? WHERE id = ?"
+        values = (note.title, note.content, note.id)
+        self.conn.execute(sql, values)
+        self.conn.commit()
