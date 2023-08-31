@@ -1,7 +1,8 @@
 import socket
 from pathlib import Path
-from utils import extract_route, read_file, build_response
+from utils import extract_route, read_file, build_response, apaga
 from views import index
+from database import Database
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = 'localhost'
@@ -21,12 +22,20 @@ while True:
     print('*'*100)
     print(request)
 
+
+
+
     route = extract_route(request)
     filepath = CUR_DIR / route
     if filepath.is_file():
         response = build_response() + read_file(filepath)
     elif route == '':
         response = index(request)
+    elif route.startswith('del'):
+        id = route.split('/')[-1]
+        print(id)
+        apaga(id)
+        response = build_response(code=303, reason='See Other', headers='Location: /')
     else:
         response = build_response()
 

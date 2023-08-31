@@ -31,7 +31,7 @@ def index(request):
     # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados.title, details=dados.content)
+        note_template.format(title=dados.title, details=dados.content, id=dados.id)
         for dados in load_data()
         # note_template.format(title=dados['titulo'], details=dados['detalhes'])
         # for dados in load_data('notes.json')
