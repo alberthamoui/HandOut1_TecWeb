@@ -123,6 +123,25 @@ body {
 	padding: 50px;
 }
 
+.edit-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+}
+
+.edit-lapis {
+    margin-left: 10px;
+    width: 25px;
+    height: auto;
+}
+
+.edit-lixo {
+    margin-left: 10px;
+    width: 25px;
+    height: auto;
+}
+
 .card {
 	border-radius: 10px;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
